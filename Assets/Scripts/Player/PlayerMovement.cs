@@ -10,17 +10,19 @@ public class PlayerMovement : MonoBehaviour
     public float lowJumpMultiplier;
     public float crouchSpeedMultiplier = 0.5f;
     public float crouchHeight = 0.5f;
+    public float glideDuration = 5f; // Durée du planage en secondes
     private float originalHeight;
     private float originalCenterY;
     private float crouchingCenterY;
     private float ySpeed;
+    private float glideTimer = 0f; // Chronomètre pour le planage
     private CharacterController controller;
     private bool isCrouching = false;
-
-    public Transform cameraTransform;
-
+    private bool isGliding = false;
     private bool isInPlayMode = false;
     private bool ctrlZPressed = false;
+
+    public Transform cameraTransform;
 
     void Start()
     {
@@ -66,6 +68,16 @@ public class PlayerMovement : MonoBehaviour
                 // Actions spécifiques à CTRL + Z pendant le jeu
                 // ...
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            StartGlide();
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            StopGlide();
         }
     }
 
@@ -121,6 +133,18 @@ public class PlayerMovement : MonoBehaviour
 
         float currentSpeed = isCrouching ? speed * crouchSpeedMultiplier : speed;
 
+        if (isGliding)
+        {
+            ySpeed = -0.1f; // Ajustez la vitesse de planage ici
+
+            glideTimer += Time.deltaTime;
+
+            if (glideTimer >= glideDuration)
+            {
+                StopGlide();
+            }
+        }
+
         Vector3 vel = moveDirection * currentSpeed;
         vel.y = ySpeed;
         controller.Move(vel * Time.deltaTime);
@@ -152,6 +176,23 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void StartGlide()
+    {
+        if (!isCrouching && !isGliding && !controller.isGrounded)
+        {
+            isGliding = true;
+            glideTimer = 0f; // Réinitialise le chronomètre de planage
+        }
+    }
+
+    void StopGlide()
+    {
+        if (isGliding)
+        {
+            isGliding = false;
+        }
+    }
+
     bool CheckCeiling()
     {
         RaycastHit hit;
@@ -165,7 +206,6 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
-    // Ajouter cette méthode pour détecter le changement de mode
     void OnApplicationFocus(bool hasFocus)
     {
         isInPlayMode = hasFocus;
