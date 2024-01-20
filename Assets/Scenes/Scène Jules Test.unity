@@ -902,6 +902,12 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &438099066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3427243099620921080, guid: 31829eaa91dd2f947bf16e0ca9b7393f,
+    type: 3}
+  m_PrefabInstance: {fileID: 987019336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &808524853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,12 +1466,12 @@ PrefabInstance:
     - target: {fileID: 9084566148891291049, guid: 31829eaa91dd2f947bf16e0ca9b7393f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.643986
+      value: -7.64
       objectReference: {fileID: 0}
     - target: {fileID: 9084566148891291049, guid: 31829eaa91dd2f947bf16e0ca9b7393f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.538471
+      value: -3.45
       objectReference: {fileID: 0}
     - target: {fileID: 9084566148891291049, guid: 31829eaa91dd2f947bf16e0ca9b7393f,
         type: 3}
@@ -1510,7 +1516,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3427243099620921080, guid: 31829eaa91dd2f947bf16e0ca9b7393f,
+        type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 1268208625}
   m_SourcePrefab: {fileID: 100100000, guid: 31829eaa91dd2f947bf16e0ca9b7393f, type: 3}
 --- !u!1 &1021696296
 GameObject:
@@ -1660,6 +1670,23 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 987019336}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1268208625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438099066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b8d02cb5e30404eab107e1e20d359f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRadius: 3
+  attackDuration: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1322208501
 GameObject:
   m_ObjectHideFlags: 0
