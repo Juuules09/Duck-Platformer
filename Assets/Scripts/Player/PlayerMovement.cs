@@ -67,8 +67,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (ctrlZPressed)
             {
-                // Actions spécifiques à CTRL + Z pendant le jeu
-                // ...
+
             }
         }
 
@@ -137,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGliding)
         {
-            ySpeed = -0.1f; // Ajustez la vitesse de planage ici
+            ySpeed = -0.1f;
 
             glideTimer += Time.deltaTime;
 
@@ -206,10 +205,5 @@ public class PlayerMovement : MonoBehaviour
         }
 
         return false;
-    }
-
-    void OnApplicationFocus(bool hasFocus)
-    {
-        isInPlayMode = hasFocus;
     }
 }

@@ -48,6 +48,6 @@ public class CameraMovement : MonoBehaviour
 
     void HandleFollow()
     {
-        // Code pour suivre le joueur si nécessaire
+        
     }
 }
