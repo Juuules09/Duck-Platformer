@@ -21,8 +21,8 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private bool isCrouching = false;
     private bool isGliding = false;
-    private bool isInPlayMode = false;
-    private bool ctrlZPressed = false;
+    public bool IsGliding { get { return isGliding; } }
+    public bool IsCrouching { get { return isCrouching; } }
 
     public Transform cameraTransform;
 
@@ -40,9 +40,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.LogError("Camera not assigned to cameraTransform in PlayerMovement!");
         }
 
-        // Vous pouvez initialement supposer que le jeu est en cours d'exécution
-        // à moins que vous ne soyez en mode édition
-        isInPlayMode = !Application.isEditor;
+
     }
 
     void Update()
@@ -60,19 +58,11 @@ public class PlayerMovement : MonoBehaviour
 
         CheckCeiling();
 
-        // Ajout de la condition pour les actions spécifiques à CTRL + Z en mode de jeu
-        if (isInPlayMode)
-        {
-            ctrlZPressed = Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Z);
 
-            if (ctrlZPressed)
-            {
-
-            }
-        }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+
             StartGlide();
         }
 

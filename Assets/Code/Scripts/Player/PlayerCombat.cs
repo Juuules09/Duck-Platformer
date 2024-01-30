@@ -10,9 +10,19 @@ public class PlayerCombat : MonoBehaviour
 
     private bool isAttacking = false;
 
+    // Reference to the PlayerMovement script
+    private PlayerMovement playerMovement;
+
+    void Start()
+    {
+        // Get the PlayerMovement component attached to the same GameObject
+        playerMovement = GetComponent<PlayerMovement>();
+    }
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isAttacking)
+        // Check if the player is not gliding and not crouching before allowing an attack
+        if (Input.GetMouseButtonDown(0) && !isAttacking && !playerMovement.IsGliding && !playerMovement.IsCrouching)
         {
             StartCoroutine(PerformCircularAttack());
         }
