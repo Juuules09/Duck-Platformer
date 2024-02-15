@@ -12,12 +12,12 @@ public class PlayerMovement : MonoBehaviour
     public float lowJumpMultiplier;
     public float crouchSpeedMultiplier = 0.5f;
     public float crouchHeight = 0.5f;
-    public float glideDuration = 5f; // Durée du planage en secondes
+    public float glideDuration = 5f;
     private float originalHeight;
     private float originalCenterY;
     private float crouchingCenterY;
     private float ySpeed;
-    private float glideTimer = 0f; // Chronomètre pour le planage
+    private float glideTimer = 0f; 
     private CharacterController controller;
     private bool isCrouching = false;
     private bool isGliding = false;
@@ -35,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
         crouchingCenterY = originalCenterY - (originalHeight - crouchHeight) / 2f;
         ySpeed = 0f;
 
-        // Assurez-vous que la caméra est correctement assignée manuellement dans l'éditeur Unity
         if (cameraTransform == null)
         {
             Debug.LogError("Camera not assigned to cameraTransform in PlayerMovement!");
@@ -150,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit groundHit, controller.height / 2f + 0.2f))
         {
-            // Si le rayon touche le sol, réinitialisez hasGlideOnce
+           
             hasGlideOnce = false;
         }
     }
@@ -186,7 +185,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isCrouching && !isGliding && !controller.isGrounded && !hasGlideOnce)
         {
             isGliding = true;
-            glideTimer = 0f; // Réinitialise le chronomètre de planage
+            glideTimer = 0f;
             hasGlideOnce = true;
         }
     }
