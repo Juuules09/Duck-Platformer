@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isGliding = false;
     public bool IsGliding { get { return isGliding; } }
     public bool IsCrouching { get { return isCrouching; } }
+    private bool hasGlideOnce = false;
 
     public Transform cameraTransform;
 
@@ -96,6 +97,12 @@ public class PlayerMovement : MonoBehaviour
         {
             ySpeed = -0.5f;
 
+            if (!controller.isGrounded && hasGlideOnce)
+            {
+                hasGlideOnce = false;
+
+            }
+
             if (Input.GetButtonDown("Jump"))
             {
                 if (isCrouching)
@@ -126,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGliding)
         {
-            ySpeed = -0.1f;
+            ySpeed = -0.5f;
 
             glideTimer += Time.deltaTime;
 
@@ -139,6 +146,13 @@ public class PlayerMovement : MonoBehaviour
         Vector3 vel = moveDirection * currentSpeed;
         vel.y = ySpeed;
         controller.Move(vel * Time.deltaTime);
+
+
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit groundHit, controller.height / 2f + 0.2f))
+        {
+            // Si le rayon touche le sol, réinitialisez hasGlideOnce
+            hasGlideOnce = false;
+        }
     }
 
     void StartCrouch()
@@ -169,10 +183,11 @@ public class PlayerMovement : MonoBehaviour
 
     void StartGlide()
     {
-        if (!isCrouching && !isGliding && !controller.isGrounded)
+        if (!isCrouching && !isGliding && !controller.isGrounded && !hasGlideOnce)
         {
             isGliding = true;
             glideTimer = 0f; // Réinitialise le chronomètre de planage
+            hasGlideOnce = true;
         }
     }
 
