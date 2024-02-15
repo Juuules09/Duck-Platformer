@@ -35,11 +35,6 @@ public class PlayerMovement : MonoBehaviour
         crouchingCenterY = originalCenterY - (originalHeight - crouchHeight) / 2f;
         ySpeed = 0f;
 
-        if (cameraTransform == null)
-        {
-            Debug.LogError("Camera not assigned to cameraTransform in PlayerMovement!");
-        }
-
 
     }
 
