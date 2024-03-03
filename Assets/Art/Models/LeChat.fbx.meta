@@ -3,7 +3,17 @@ guid: f015980b0f0a22149aed6d9eda19aa73
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_LeChat_basecolor
+    second: {fileID: 2100000, guid: f4c609d5bfaebaa4e9c9da7a8805a5a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_LeChat_face_neutral
+    second: {fileID: 2100000, guid: aed24475776b8ab43aac7bf0f6031050, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
