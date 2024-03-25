@@ -111,7 +111,7 @@ Material:
     - _EnvironmentReflections: 1
     - _FoamAmount: 1
     - _FoamCutOff: 1
-    - _FoamScale: 50
+    - _FoamScale: 1
     - _FoamSpeed: 1
     - _FoamVutOff: 1
     - _GlossMapScale: 0
@@ -123,9 +123,9 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RefractionScale: 1
+    - _RefractionScale: 0.3
     - _RefractionSpeed: 0.05
-    - _RefractionStrengh: 2
+    - _RefractionStrengh: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
