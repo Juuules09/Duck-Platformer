@@ -1567,7 +1567,7 @@
     "m_Group": {
         "m_Id": "29417067faba4bb9a79a16239fb47081"
     },
-    "m_Name": "Movement",
+    "m_Name": "subSG_Movement",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -2224,7 +2224,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "DepthFade",
+    "m_Name": "subSG_DepthFade",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -2941,7 +2941,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "Movement",
+    "m_Name": "subSG_Movement",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -3138,7 +3138,7 @@
     "m_Group": {
         "m_Id": "d123f789308346eea069a6cf254b2d2d"
     },
-    "m_Name": "DepthFade",
+    "m_Name": "subSG_DepthFade",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
