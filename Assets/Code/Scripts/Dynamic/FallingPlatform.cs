@@ -13,7 +13,7 @@ public class FallingPlatform : MonoBehaviour
     /// Called when the object begins touching another object.
     /// </summary>
     /// <param name="collision">The collision data.</param>
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         // When the player lands on the platform, make the platform fall
         if (collision.gameObject.tag == "Player")
