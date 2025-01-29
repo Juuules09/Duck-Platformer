@@ -19,6 +19,7 @@ public class FallingPlatform : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             _rb.isKinematic = false;
+            // Grosse bite bien poilu
         }
     }
 }
